@@ -1,14 +1,3 @@
-// This is a Golang implementation of Red Blob Games A* algorithm from tutorial article
-// https://www.redblobgames.com/pathfinding/a-star/implementation.html
-// *
-// *
-// Original examples were written in Python/C++/C#. The logic is exactly the same as in the article,
-// I only translated it to Go. Anyone studying their implementations can look here for reference.
-// I highly recommend getting familiar with their work.
-// *
-// *
-// License MIT
-
 package main
 
 import (
@@ -18,23 +7,22 @@ import (
 )
 
 func main() {
-	grid := SquareGrid {
-		width: 10,
-		height:10,
-		walls:[]Location{
-			{1,7},
-			{1,8},
-			{2,7},
-			{2,8},
-			{3,7},
-			{3,8},
+	grid := SquareGrid{
+		width:  10,
+		height: 10,
+		walls: []Location{
+			{1, 7},
+			{1, 8},
+			{2, 7},
+			{2, 8},
+			{3, 7},
+			{3, 8},
 		},
-		forests:[]Location{
-		},
+		forests: []Location{},
 	}
 
-	start := Location{7,8}
-	goal := Location{1,4}
+	start := Location{7, 8}
+	goal := Location{1, 4}
 	path := aStarSearch(grid, start, goal)
 	fmt.Printf("%d", path)
 }

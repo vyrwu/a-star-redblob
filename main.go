@@ -55,9 +55,9 @@ func main() {
 				fmt.Print(" S ")
 			} else if l.y == goal.y && l.x == goal.x {
 				fmt.Print(" G ")
-			} else if isWall(grid, l) {
+			} else if contains(grid.walls, l) {
 				fmt.Print(" X ")
-			} else if isForest(grid, l) {
+			} else if contains(grid.forests, l) {
 				fmt.Print(" ^ ")
 			} else if contains(path, l) {
 				fmt.Print(" * ")
@@ -67,22 +67,4 @@ func main() {
 		}
 		fmt.Println()
 	}
-}
-
-func isWall(grid SquareGrid, target Location) bool {
-	for _, v := range grid.walls {
-		if target.y == v.y && target.x == v.x {
-			return true
-		}
-	}
-	return false
-}
-
-func isForest(grid SquareGrid, target Location) bool {
-	for _, v := range grid.forests {
-		if target.y == v.y && target.x == v.x {
-			return true
-		}
-	}
-	return false
 }
